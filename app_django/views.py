@@ -1,6 +1,3 @@
-from allauth.account.views import PasswordSetView
-from django import forms
-from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render, redirect
