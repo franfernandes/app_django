@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load socialaccount %} 
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .login-box {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .login-box form {
+            text-align: left;
+        }
+
+        .login-box div {
+            margin-bottom: 10px;
+        }
+
+        .login-box label, .login-box input {
+            display: block;
+        }
+
+        .login-box .google-login-button {
+            margin-top: 20px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Login</h1>
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            {{ form.username.label_tag }} {{ form.username }}
+            {{ form.password.label_tag }} {{ form.password }}
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </form>
+        
+        <div class="google-login-button">
+            <a href="{% provider_login_url 'google' %}" class="btn btn-google">Login com o Google</a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2023 Francielle Fernandes</p>
+    </div>
+</body>
+</html>
